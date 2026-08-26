@@ -1,36 +1,52 @@
-import ProductCard from './ProductCart';
-import image1 from './assets/image1.jpg';
-import image2 from './assets/image2.jpg';
+import products, {ProductCard }from './ProductCart';
+import './App.css';
+import { useState } from 'react';
+
 function App(){
+  const [searchTerm, setSearchTerm] = useState('');
+  const[cart, setCart] = useState([]);
+  
+  function handleAddToCart(product) {
+    setCart([...cart, product]);
+  }
+
+  const filteredProducts = products.filter((products) =>
+  products.name.toLowerCase().includes(searchTerm.toLowerCase()));
+
   return(
 <div className="app">
 <header>
-  <h1>Jasper Store 🛒</h1>
+  <h1>Jasper Store 🛒 ({cart.length})</h1>
   <p> Quality tech, fashion, and accessories-curated for you.</p>
 </header>
 
+<input 
+type="text" 
+placeholder= "Search products..."
+value={searchTerm}
+onChange={(e) => setSearchTerm(e.target.value)}
+className= "search-bar"
+
+/>
+
 <div className= "product-grid">
-
+{filteredProducts.map((product) => (
   <ProductCard
-  name= "Wireless Headphones"
-  price= {69.99}
-  image={image1}
-  category="Electronics"
-  rating={4.5}
-  description="Noise-cancelling over-ear headphones."
+  key={product.id}
+  name={product.name}
+  price={product.price}
+  image={product.image}
+  category={product.category}
+  rating={product.rating}
+  description={product.description}
+  onAddToCart={() => handleAddToCart(product)}
   />
 
-  <ProductCard
-  name= "Smart Watch"
-  price= {136.99}
-  image={image2}
-  category="Electronics"
-  rating={4.4}
-  description="Track fitness, sleep, and notification."
-  />
+))}
+</div>
+</div>
 
-</div>
-</div>
+ 
   );
 }
 
