@@ -16,7 +16,7 @@ function App(){
   return(
 <div className="app">
 <header>
-  <h1>Jasper Store 🛒 ({cart.length})</h1>
+  <h1>Jasper Store 🛒 ({cart.length}) </h1>
   <p> Quality tech, fashion, and accessories-curated for you.</p>
 </header>
 
