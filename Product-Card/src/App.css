@@ -122,3 +122,37 @@ background-color: #333;
   border: 1px solid #ddd;
   font-size: 1rem;
 }
+
+.cart-page {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: space-between;
+}
+
+.cart-item button{
+background: #e5484d;
+color: white;
+border: none;
+padding: 0.4rem 0.8rem;
+border-radius: 6px;
+cursor: pointer;
+font-size: 0.85rem;
+}
+
+
+.cart-item img {
+  border-radius: 8px;
+}
+
+.cart-total {
+  margin-top: 1.5rem;
+  text-align: right;
+  font-size: 1.3rem;
+}
